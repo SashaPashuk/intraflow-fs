@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@intraflow/api/*": ["apps/api/src/*"],
+      "@intraflow/web/*": ["apps/web/src/*"],
+      "@intraflow/db": ["packages/db"],
+      "@intraflow/types/*": ["packages/types/*"],
+      "@intraflow/utils/*": ["packages/utils/*"],
+      "@intraflow/ui": ["packages/ui/src"]
+    },
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es2022",
+    "lib": ["es2022", "dom"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

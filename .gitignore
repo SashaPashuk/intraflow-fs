@@ -1,0 +1,29 @@
+# === Node ===
+node_modules/
+npm-debug.log*
+
+# === pnpm ===
+.pnpm-debug.log*
+
+# === Monorepo & TurboRepo ===
+.turbo/
+
+# === Env variables ===
+.env
+.env.*
+!.env.example
+
+# === Next.js ===
+.next/
+
+# === Prisma generated ===
+prisma/generated/
+
+# === Logs ===
+*.log
+
+# === Coverage / tests ===
+coverage/
+
+# === System files ===
+.DS_Store

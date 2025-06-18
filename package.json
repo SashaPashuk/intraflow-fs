@@ -1,0 +1,49 @@
+{
+  "name": "intraflow-fs",
+  "private": true,
+  "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "db:migrate": "prisma migrate dev --schema=./infrastructure/prisma/schema.prisma",
+    "db:generate": "prisma generate --schema=./infrastructure/prisma/schema.prisma",
+    "studio": "prisma studio --schema=./infrastructure/prisma/schema.prisma",
+    "s3:clean": "ts-node --project infrastructure/jobs/s3-cleaner/tsconfig.json infrastructure/jobs/s3-cleaner/index.ts",
+    "s3:cron": "ts-node --project infrastructure/jobs/s3-cleaner/tsconfig.json infrastructure/jobs/s3-cleaner/index.ts",
+    "dev:web": "pnpm --filter web dev",
+    "dev:api": "pnpm --filter api dev",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:restart": "docker-compose restart"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.828.0",
+    "@fastify/cors": "^11.0.1",
+    "@prisma/client": "^6.9.0",
+    "@tanstack/react-query": "^5.20.0",
+    "@trpc/client": "^10.44.0",
+    "@trpc/react-query": "^10.44.0",
+    "@trpc/server": "^10.44.0",
+    "dotenv": "^16.5.0",
+    "fastify": "^5.3.3",
+    "kafkajs": "^2.2.4",
+    "node-cron": "^4.1.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "prettier": "^3.5.3",
+    "prisma": "^6.9.0",
+    "ts-node": "^10.9.2",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.2"
+  }
+}
